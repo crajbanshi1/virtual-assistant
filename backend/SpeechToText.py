@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from dotenv import dotenv_values
 import os
 import mtranslate as mt
+from config.Config import DataDirectory
 
 env_vars = dotenv_values(".env")
 
@@ -50,7 +51,7 @@ HtmlCode = '''<!DOCTYPE html>
 
 HtmlCode = str(HtmlCode).replace("recognition.lang = '';", "recognition.lang = '{InputLanguage}';")
 
-with open(r"data\Voice.html", "w") as f:
+with open(rf"{DataDirectory}\Voice.html", "w") as f:
     f.write(HtmlCode)
 
 current_dir = os.getcwd()

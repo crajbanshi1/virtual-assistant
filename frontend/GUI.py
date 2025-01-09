@@ -33,7 +33,7 @@ env_vars = dotenv_values(".env")
 Assistantname = env_vars.get("Assistantname")
 current_dir = os.getcwd()
 old_chat_message = ""
-TempDirPath = rf"{current_dir}\frontend\Files"
+FilesDirPath = rf"{current_dir}\frontend\Files"
 GraphocsDirPath = rf"{current_dir}\frontend\Graphics"
 
 
@@ -78,23 +78,23 @@ def QueryModifier(Query: str):
 
 
 def SetMicrophoneStatus(Command):
-    with open(rf"{TempDirPath}\Mic.data", "w", encoding="utf-8") as file:
+    with open(rf"{FilesDirPath}\Mic.data", "w", encoding="utf-8") as file:
         file.write(Command)
 
 
 def GetMicrophoneStatus():
-    with open(rf"{TempDirPath}\Mic.data", "r", encoding="utf-8") as file:
+    with open(rf"{FilesDirPath}\Mic.data", "r", encoding="utf-8") as file:
         Status = file.read()
     return Status
 
 
 def SetAssistantStatus(Status):
-    with open(rf"{TempDirPath}\Status.data", "w", encoding="utf-8") as file:
+    with open(rf"{FilesDirPath}\Status.data", "w", encoding="utf-8") as file:
         file.write(Status)
 
 
 def GetAssistantStatus():
-    with open(rf"{TempDirPath}\Status.data", "r", encoding="utf-8") as file:
+    with open(rf"{FilesDirPath}\Status.data", "r", encoding="utf-8") as file:
         Status = file.read()
     return Status
 
@@ -113,12 +113,12 @@ def GraphicsDirectoryPath(Filename):
 
 
 def TempDirectoryPath(Filename):
-    Path = rf"{TempDirPath}\{Filename}"
+    Path = rf"{FilesDirPath}\{Filename}"
     return Path
 
 
 def ShowTextToScreen(Text):
-    with open(rf"{TempDirPath}\Responses.data", "w", encoding="utf-8") as file:
+    with open(rf"{FilesDirPath}\Responses.data", "w", encoding="utf-8") as file:
         file.write(Text)
 
 

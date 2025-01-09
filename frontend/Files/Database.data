@@ -1,10 +1,2 @@
-Chanchal : Hello
-Jarvis : Hello Chanchal! It's nice to meet you. How can I assist you today?
-Chanchal : C:/Chanchal s/crajb/AppData/Local/Programs/Python/Python310/python.exe d:/python/jarvis.ai/backend/RealtimeSearchEngine.py
-Jarvis : It seems like you're running a Python script. Is there something specific you'd like me to help you with regarding this script or would you like me to assist you with something else?
-Chanchal : How is Chanchal
-Jarvis : You're asking about yourself! As your AI chatbot, I don't have any information about your current state or feelings, but I'm here to help you with any questions or topics you'd like to discuss. How can I assist you today, Chanchal?
-Chanchal : Who is Sachin
-Jarvis : Sachin Tendulkar is a former Indian cricketer widely regarded as one of the greatest batsmen of all time.
-Chanchal : C:/Chanchal s/crajb/AppData/Local/Programs/Python/Python310/python.exe d:/python/jarvis.ai/backend/SpeechToText.py
-Jarvis : It seems like you're running another Python script, this time for Speech-to-Text functionality. Would you like me to help you with something related to this script or speech recognition in general?
+Chanchal : What is date today?
+Jarvis : The date today is January d, 2025.

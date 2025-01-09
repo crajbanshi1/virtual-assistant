@@ -4,11 +4,12 @@ import asyncio
 import edge_tts
 import os
 from dotenv import dotenv_values
+from config.Config import DataDirectory
 
 env_vars = dotenv_values(".env")
 
 AssistantVoice = env_vars.get("AssistantVoice")
-file_path = r"data\speech.mp3"
+file_path = rf"{DataDirectory}\speech.mp3"
 
 async def TextToAudioFile(text)-> None:    
 
@@ -74,7 +75,7 @@ def TextToSpeech(Text, func=lambda r=None: True):
     ]
 
     if len(Data) > 4 and len(Text) >= 250:
-        TTS(" ".join(Text.split(".")[0:2]) + ". " + random.choice(response), func)
+        TTS(" ".join(Text.split(".")[0:2]) + ". " + random.choice(responses), func)
 
     else:
         TTS(Text, func)

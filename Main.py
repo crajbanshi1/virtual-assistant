@@ -22,6 +22,7 @@ import subprocess
 import threading
 import json
 import os
+from config.Config import Chatlogfile
 
 env_vars = dotenv_values(".env")
 Username = env_vars.get("Username")
@@ -39,9 +40,8 @@ Functions = [
     "youtube search",
 ]
 
-
 def ShowDefaultChatIfNoChats():
-    File = open(r"data\Chatlog.json", "r", encoding="utf-8")
+    File = open(rf"{Chatlogfile}", "r", encoding="utf-8")
     if len(File.read()) < 5:
         with open(TempDirectoryPath("Database.data"), "w", encoding="utf-8") as file:
             file.write("")
@@ -51,7 +51,7 @@ def ShowDefaultChatIfNoChats():
 
 
 def ReadChatLogJson():
-    with open(r"data\Chatlog.json", "r", encoding="utf-8") as file:
+    with open(rf"{Chatlogfile}", "r", encoding="utf-8") as file:
         chatlog_data = json.load(file)
     return chatlog_data
 
@@ -133,7 +133,7 @@ def MainExecution():
                 TaskExecution = True
 
     if ImageExecution == True:
-        with open(r"frontend\Files\ImageGeneration.data", "w") as file:
+        with open(TempDirectoryPath("ImageGeneration.data"), "w") as file:
             file.write(f"{ImageGenerationQuery},True")
 
         try:

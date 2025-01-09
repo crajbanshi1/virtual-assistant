@@ -2,6 +2,7 @@ from groq import Groq
 from json import load, dump
 import datetime
 from dotenv import dotenv_values
+from config.Config import Chatlogfile
 
 env_vars = dotenv_values(".env")
 
@@ -25,16 +26,16 @@ SystemChatBot = [
 
 
 try:
-    with open(r"data\Chatlog.json", "r") as f:
+    with open(Chatlogfile, "r") as f:
         messages = load(f)
 except FileNotFoundError:
-    with open(r"data\Chatlog.json", "w") as f:
+    with open(Chatlogfile, "w") as f:
         dump([], f)
 
 def RealtimeInformation():
     current_date_time = datetime.datetime.now()
     day = current_date_time.strftime("%A")
-    date = current_date_time.strftime("d")
+    date = current_date_time.strftime("%d")
     month = current_date_time.strftime("%B")
     year = current_date_time.strftime("%Y")
     hour = current_date_time.strftime("%H")
@@ -56,7 +57,7 @@ def ChatBot(Query):
 
     try:
 
-        with open(r"data\Chatlog.json", "r") as f:
+        with open(Chatlogfile, "r") as f:
             messages = load(f)
 
         messages.append({"role": "user", "content": f"{Query}"})
@@ -80,14 +81,14 @@ def ChatBot(Query):
 
         messages.append({"role": "assistant", "content": Answer})
 
-        with open(r"data\Chatlog.json", "w") as f:
+        with open(Chatlogfile, "w") as f:
             dump(messages, f, indent=4)
 
         return AnswerModifier(Answer=Answer)
     except Exception as e:
 
         print(f"Error: {e}")
-        with open(r"data\Chatlog.json", "w") as f:
+        with open(Chatlogfile, "w") as f:
             dump([], f, indent=4)
         return ChatBot(Query)
     

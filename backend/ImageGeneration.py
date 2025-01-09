@@ -5,15 +5,15 @@ import requests
 from dotenv import get_key
 import os
 from time import sleep
+from config.Config import DataDirectory
 
 def open_images(prompt: str):
-    folder_path = r"data"
     prompt = prompt.replace(" ", "_")
 
     Files = [f"{prompt}{i}.jpg" for i in range(1,5)]
 
     for jpg_file in Files:
-        image_path = os.path.join(folder_path, jpg_file)
+        image_path = os.path.join(DataDirectory, jpg_file)
 
         try:
             img = Image.open(image_path)
